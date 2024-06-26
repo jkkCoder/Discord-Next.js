@@ -11,6 +11,7 @@ import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Component } from "lucide-react"
 import { useEffect, useState } from "react"
+import { FileUpload } from "@/components/file-upload"
 
 
 const formSchema = z.object({
@@ -59,7 +60,21 @@ export const InitialModal = () => {
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                         <div className="space-y-8 px-6">
                             <div className="flex itemx-center justify-center text-center">
-                                Todo: Image Upload
+                                <FormField control={form.control}
+                                name="imageUrl"
+                                render={({field}) => (
+                                    <FormItem>
+                                        <FormControl>
+                                            <FileUpload
+                                                endpoint="serverImage"
+                                                value={field.value}
+                                                onChange={field.onChange}
+                                            />
+                                        </FormControl>
+                                        <FormMessage />
+                                    </FormItem>
+                                )}
+                            />
                             </div>
 
                             <FormField control={form.control}
