@@ -122,7 +122,7 @@ export default async function handler(req:NextApiRequest, res:NextApiResponseSer
             })
         }
 
-        const updateKey = `chat:${channelId}:message:update`
+        const updateKey = `chat:${channelId}:messages:update`
 
         res?.socket?.server?.io?.emit(updateKey, message)
 
