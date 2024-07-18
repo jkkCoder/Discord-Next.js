@@ -32,6 +32,7 @@ export const ChatInput = ({apiUrl, query, name, type}: ChatInputProps) => {
         }
     })
     const router = useRouter()
+    console.log({query})
 
     const {onOpen} = useModal()
 

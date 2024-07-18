@@ -20,6 +20,8 @@ export const useChatQuery = ({queryKey, apiUrl, paramKey, paramValue} : ChatQuer
                 [paramKey]: [paramValue],
             }
         }, {skipNull: true})
+
+        console.log({paramKey, paramValue, url})
         const res = await fetch(url)
         return res.json()
     }
